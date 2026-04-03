@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programme des Églises de Maison — CCEAV</title>
+  <meta name="description" content="Programme annuel des églises de maison de la CCEAV : fondements de la vie chrétienne, développement spirituel, vie communautaire et mission.">
+  <meta property="og:title" content="Programme des Églises de Maison — CCEAV">
+  <meta property="og:description" content="Programme annuel des églises de maison : 52 semaines de thèmes bibliques pour grandir ensemble.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#1e1a6e" id="meta-theme">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+  <link rel="stylesheet" href="assets/styles/main.css">
+  <link rel="stylesheet" href="assets/styles/print.css" media="print">
+  <script>
+    document.documentElement.classList.remove('no-js');
+    /* Restore saved theme instantly to prevent flash */
+    (function(){
+      var t=localStorage.getItem('theme');
+      if(t==='dark'||t==='light')document.documentElement.classList.add(t);
+    })();
+  </script>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <!-- ============================================================= -->
+  <!-- HEADER                                                        -->
+  <!-- ============================================================= -->
+  <header class="site-header">
+    <div class="container">
+      <h1>Programme des Églises de Maison</h1>
+      <p class="subtitle">CCEAV · Parcours annuel de croissance spirituelle</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat__value">4</span>
+          <span class="hero-stat__label">Trimestres</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat__value">52</span>
+          <span class="hero-stat__label">Semaines</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat__value">32</span>
+          <span class="hero-stat__label">Thèmes disponibles</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================= -->
+  <!-- NAVIGATION                                                    -->
+  <!-- ============================================================= -->
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="container">
+      <a href="#trimestre-1" class="nav-link">T1</a>
+      <a href="#trimestre-2" class="nav-link">T2</a>
+      <a href="#trimestre-3" class="nav-link">T3</a>
+      <a href="#trimestre-4" class="nav-link">T4</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Changer de thème clair/sombre">
+        <svg class="icon-sun" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72 1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================= -->
+  <!-- MAIN CONTENT                                                  -->
+  <!-- ============================================================= -->
+  <main id="main">
+    <div class="container">
+
+      <!-- Search -->
+      <section class="search-section" aria-label="Recherche">
+        <div class="search-wrapper">
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="search" id="search" class="search-input" placeholder="Rechercher un thème, une référence…" aria-label="Rechercher dans le programme">
+        </div>
+      </section>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar" role="toolbar" aria-label="Filtrer par trimestre ou semaine">
+        <span class="filter-bar__label">Filtrer :</span>
+        <button class="filter-btn active" aria-pressed="true" data-filter="all">Tous</button>
+        <button class="filter-btn" aria-pressed="false" data-filter="1">Trimestre 1</button>
+        <button class="filter-btn" aria-pressed="false" data-filter="2">Trimestre 2</button>
+        <button class="filter-btn" aria-pressed="false" data-filter="3">Trimestre 3</button>
+        <button class="filter-btn" aria-pressed="false" data-filter="4">Trimestre 4</button>
+
+        <!-- Custom week selector (JS-enhanced, native fallback) -->
+        <div class="week-selector" id="week-selector">
+          <button class="week-selector__trigger" type="button" aria-haspopup="listbox" aria-expanded="false" id="week-trigger">
+            <span>Semaine…</span>
+            <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 12 12"><path d="m2 4 4 4 4-4"/></svg>
+          </button>
+          <div class="week-selector__dropdown" role="listbox" id="week-dropdown" aria-label="Choisir une semaine">
+          </div>
+        </div>
+        <!-- Native fallback for no-js -->
+        <label for="week-select" class="sr-only">Aller à la semaine</label>
+        <select id="week-select" class="week-select-native">
+          <option value="">Semaine…</option>
+          <option value="1">Semaine 1</option><option value="2">Semaine 2</option><option value="3">Semaine 3</option>
+          <option value="4">Semaine 4</option><option value="5">Semaine 5</option><option value="6">Semaine 6</option>
+          <option value="7">Semaine 7</option><option value="8">Semaine 8</option><option value="9">Semaine 9</option>
+          <option value="10">Semaine 10</option><option value="11">Semaine 11</option><option value="12">Semaine 12</option>
+          <option value="13">Semaine 13</option><option value="14">Semaine 14</option><option value="15">Semaine 15</option>
+          <option value="16">Semaine 16</option><option value="17">Semaine 17</option><option value="18">Semaine 18</option>
+          <option value="19">Semaine 19</option><option value="20">Semaine 20</option><option value="21">Semaine 21</option>
+          <option value="22">Semaine 22</option><option value="23">Semaine 23</option><option value="24">Semaine 24</option>
+          <option value="25">Semaine 25</option><option value="26">Semaine 26</option><option value="27">Semaine 27</option>
+          <option value="28">Semaine 28</option><option value="29">Semaine 29</option><option value="30">Semaine 30</option>
+          <option value="31">Semaine 31</option><option value="32">Semaine 32</option>
+        </select>
+      </div>
+
+      <!-- Live region for screen readers -->
+      <div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+      <!-- No results message -->
+      <p class="no-results" id="no-results">Aucun résultat trouvé pour votre recherche.</p>
+
+      <!-- ========================================================= -->
+      <!-- TRIMESTRE 1                                               -->
+      <!-- ========================================================= -->
+      <section class="trimester" id="trimestre-1" data-trimester="1" aria-labelledby="t1-title">
+        <div class="trimester__header">
+          <span class="trimester__badge" aria-hidden="true">1</span>
+          <div>
+            <h2 id="t1-title" class="trimester__title">Premier trimestre : Fondements de la vie chrétienne</h2>
+            <p class="trimester__subtitle">Semaines 1 à 13</p>
+          </div>
+        </div>
+
+        <ol class="weeks-list">
+          <li class="week-card" data-week="1" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 1">1</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La nouvelle naissance et l'assurance du salut</p>
+              <p class="week-card__refs">Jean 3:3-8, Romains 8:1</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="2" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 2">2</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La Parole de Dieu : nourriture spirituelle</p>
+              <p class="week-card__refs">Matthieu 4:4, Psaume 119:105</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="3" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 3">3</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La prière : dialogue avec Dieu</p>
+              <p class="week-card__refs">Matthieu 6:9-13, Philippiens 4:6-7</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="4" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 4">4</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La foi en action</p>
+              <p class="week-card__refs">Hébreux 11:1-6, Jacques 2:17-26</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="5" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 5">5</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La repentance et le pardon</p>
+              <p class="week-card__refs">Actes 3:19, Matthieu 6:14-15</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="6" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 6">6</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La puissance du Saint-Esprit</p>
+              <p class="week-card__refs">Actes 1:8, Galates 5:22-23</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="7" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 7">7</span>
+            <div class="week-card__body">
+              <p class="week-card__title">L'amour fraternel : un signe distinctif</p>
+              <p class="week-card__refs">Jean 13:34-35, 1 Jean 4:7-12</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="8" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 8">8</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La communion fraternelle</p>
+              <p class="week-card__refs">Actes 2:42-47, Hébreux 10:24-25</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="9" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 9">9</span>
+            <div class="week-card__body">
+              <p class="week-card__title">L'obéissance à Dieu</p>
+              <p class="week-card__refs">Jean 14:15, Deutéronome 28:1-2</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="10" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 10">10</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Les promesses de Dieu pour le croyant</p>
+              <p class="week-card__refs">2 Pierre 1:3-4, 2 Corinthiens 1:20</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="11" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 11">11</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Le baptême : un acte d'obéissance</p>
+              <p class="week-card__refs">Matthieu 28:19-20, Actes 8:36-39</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="12" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 12">12</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Le partage de l'Évangile</p>
+              <p class="week-card__refs">Matthieu 28:18-20, Romains 10:14-15</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="13" data-trimester="1">
+            <span class="week-card__number" aria-label="Semaine 13">13</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Revoir et appliquer les enseignements</p>
+              <p class="week-card__refs">Temps de révision et témoignages</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- TRIMESTRE 2                                               -->
+      <!-- ========================================================= -->
+      <section class="trimester" id="trimestre-2" data-trimester="2" aria-labelledby="t2-title">
+        <div class="trimester__header">
+          <span class="trimester__badge" aria-hidden="true">2</span>
+          <div>
+            <h2 id="t2-title" class="trimester__title">Deuxième trimestre : Développement spirituel</h2>
+            <p class="trimester__subtitle">Semaines 14 à 26</p>
+          </div>
+        </div>
+
+        <ol class="weeks-list" start="14">
+          <li class="week-card" data-week="14" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 14">14</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Marcher par l'Esprit</p>
+              <p class="week-card__refs">Galates 5:16-26, Romains 8:5-9</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="15" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 15">15</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La sanctification : vivre une vie sainte</p>
+              <p class="week-card__refs">1 Thessaloniciens 4:3-8, 1 Pierre 1:15-16</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="16" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 16">16</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Les disciplines spirituelles</p>
+              <p class="week-card__refs">Psaume 1:1-3, 1 Timothée 4:7-8</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="17" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 17">17</span>
+            <div class="week-card__body">
+              <p class="week-card__title">L'écoute de la voix de Dieu</p>
+              <p class="week-card__refs">1 Samuel 3:1-10, Jean 10:27</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="18" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 18">18</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Les dons spirituels</p>
+              <p class="week-card__refs">1 Corinthiens 12:4-11, Romains 12:6-8</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="19" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 19">19</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Les fruits de l'Esprit</p>
+              <p class="week-card__refs">Galates 5:22-23, Matthieu 7:16-20</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="20" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 20">20</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Surmonter les épreuves par la foi</p>
+              <p class="week-card__refs">Jacques 1:2-4, 1 Pierre 1:6-7</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="21" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 21">21</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La victoire sur le péché</p>
+              <p class="week-card__refs">Romains 6:12-14, 1 Jean 1:9</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="22" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 22">22</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Le rôle du Saint-Esprit dans le développement personnel</p>
+              <p class="week-card__refs">Jean 14:26, Romains 8:26-27</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="23" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 23">23</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La persévérance dans la foi</p>
+              <p class="week-card__refs">Hébreux 12:1-3, Jacques 5:7-11</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="24" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 24">24</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Le service dans l'Église et le monde</p>
+              <p class="week-card__refs">Marc 10:45, Galates 6:9-10</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="25" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 25">25</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Le renouvellement de l'intelligence</p>
+              <p class="week-card__refs">Romains 12:2, Éphésiens 4:22-24</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="26" data-trimester="2">
+            <span class="week-card__number" aria-label="Semaine 26">26</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Temps de révision et mise en pratique</p>
+              <p class="week-card__refs">Partages et prières communes</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- TRIMESTRE 3                                               -->
+      <!-- ========================================================= -->
+      <section class="trimester" id="trimestre-3" data-trimester="3" aria-labelledby="t3-title">
+        <div class="trimester__header">
+          <span class="trimester__badge" aria-hidden="true">3</span>
+          <div>
+            <h2 id="t3-title" class="trimester__title">Troisième trimestre : Vie communautaire et mission</h2>
+            <p class="trimester__subtitle">Semaines 27 à 39</p>
+          </div>
+        </div>
+
+        <ol class="weeks-list" start="27">
+          <li class="week-card" data-week="27" data-trimester="3">
+            <span class="week-card__number" aria-label="Semaine 27">27</span>
+            <div class="week-card__body">
+              <p class="week-card__title">L'unité dans l'Église</p>
+              <p class="week-card__refs">Psaume 133:1, 1 Corinthiens 1:10</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="28" data-trimester="3">
+            <span class="week-card__number" aria-label="Semaine 28">28</span>
+            <div class="week-card__body">
+              <p class="week-card__title">L'encouragement mutuel</p>
+              <p class="week-card__refs">1 Thessaloniciens 5:11, Hébreux 3:13</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="29" data-trimester="3">
+            <span class="week-card__number" aria-label="Semaine 29">29</span>
+            <div class="week-card__body">
+              <p class="week-card__title">La gestion des conflits dans l'Église</p>
+              <p class="week-card__refs">Matthieu 18:15-17, Romains 12:17-21</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="30" data-trimester="3">
+            <span class="week-card__number" aria-label="Semaine 30">30</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Le rôle des groupes de maison dans la mission</p>
+              <p class="week-card__refs">Actes 2:46-47, Matthieu 5:14-16</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="31" data-trimester="3">
+            <span class="week-card__number" aria-label="Semaine 31">31</span>
+            <div class="week-card__body">
+              <p class="week-card__title">Donner et partager avec générosité</p>
+              <p class="week-card__refs">2 Corinthiens 9:6-8, Actes 20:35</p>
+            </div>
+          </li>
+          <li class="week-card" data-week="32" data-trimester="3">
+            <span class="week-card__number" aria-label="Semaine 32">32</span>
+            <div class="week-card__body">
+              <p class="week-card__title">L'hospitalité chrétienne</p>
+              <p class="week-card__refs">Hébreux 13:1-2, Romains 12:13</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="placeholder-notice">
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+          <p>Semaines 33 à 39 : contenu à confirmer.</p>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- TRIMESTRE 4 (placeholder)                                 -->
+      <!-- ========================================================= -->
+      <section class="trimester" id="trimestre-4" data-trimester="4" aria-labelledby="t4-title">
+        <div class="trimester__header">
+          <span class="trimester__badge" aria-hidden="true">4</span>
+          <div>
+            <h2 id="t4-title" class="trimester__title">Quatrième trimestre</h2>
+            <p class="trimester__subtitle">Semaines 40 à 52</p>
+          </div>
+        </div>
+
+        <div class="placeholder-notice">
+          <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+          <p>Le contenu du quatrième trimestre sera disponible prochainement.</p>
+        </div>
+      </section>
+
+    </div><!-- /.container -->
+  </main>
+
+  <!-- ============================================================= -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 CCEAV — Programme des Églises de Maison</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut">
+    <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="assets/scripts/app.js" defer></script>
+</body>
+</html>

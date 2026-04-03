@@ -1,0 +1,90 @@
+/* ===================================================================
+   Print Styles — Programme des Églises de Maison
+   =================================================================== */
+
+@media print {
+  /* Reset decorations */
+  *, *::before, *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Hide interactive / decorative UI */
+  .skip-link,
+  .site-nav,
+  .search-section,
+  .filter-bar,
+  .no-results,
+  .back-to-top,
+  .hero-stats,
+  .week-selector,
+  .week-select-native,
+  .theme-toggle { display: none !important; }
+
+  /* Show all content (undo JS filters) */
+  .week-card[hidden] { display: flex !important; }
+  .trimester[hidden] { display: block !important; }
+  .week-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Header simplification */
+  .site-header {
+    padding: 0 0 1rem !important;
+    text-align: left;
+  }
+  .site-header::after { display: none; }
+  .site-header h1 { font-size: 18pt; font-weight: 700; }
+  .site-header .subtitle { font-size: 11pt; }
+
+  /* Container full width */
+  .container { max-width: 100%; padding: 0; }
+
+  /* Trimester header */
+  .trimester { padding-top: 1.5rem; }
+  .trimester__badge { display: none; }
+  .trimester__title { font-size: 14pt; }
+
+  /* Cards → simple list items */
+  .week-card {
+    border: none !important;
+    border-bottom: 1px solid #ccc !important;
+    border-radius: 0 !important;
+    padding: .5rem 0 !important;
+    page-break-inside: avoid;
+  }
+  .week-card__number {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    font-weight: 700;
+    min-width: 1.5rem;
+  }
+  .week-card__refs { font-size: 10pt; }
+
+  /* Footer minimal */
+  .site-footer { font-size: 9pt; border-top: 1px solid #000; }
+
+  /* Placeholder */
+  .placeholder-notice { border-style: solid !important; font-style: italic; }
+
+  /* Page margins */
+  @page {
+    margin: 2cm 1.5cm;
+  }
+
+  /* Avoid orphans/widows */
+  p, li { orphans: 3; widows: 3; }
+  h1, h2, h3 { page-break-after: avoid; }
+}
